@@ -11,6 +11,7 @@ import { initTRPC } from "@trpc/server";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
 import superjson from "superjson";
 import { ZodError } from "zod";
+import { testConnection } from '../../server/database';
 
 /**
  * 1. CONTEXT
@@ -42,7 +43,11 @@ const createInnerTRPCContext = (_opts: CreateContextOptions) => {
  *
  * @see https://trpc.io/docs/context
  */
-export const createTRPCContext = (_opts: CreateNextContextOptions) => {
+export const createTRPCContext = async (_opts: CreateNextContextOptions) => {
+  if (process.env.NODE_ENV === 'development') {
+    await testConnection(); // Run the test connection
+  }
+
   return createInnerTRPCContext({});
 };
 
@@ -68,6 +73,7 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
   },
 });
 
+
 /**
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)
  *
@@ -90,3 +96,5 @@ export const createTRPCRouter = t.router;
  * are logged in.
  */
 export const publicProcedure = t.procedure;
+
+

@@ -63,7 +63,8 @@ Once you have both of these successfully installed postgreSQL locally and the to
 - Navigate to your codebase to the file postgresql > schema.sql -- Copy and paste this query into the blank box in PGadmin4
 - Click the "Run" button (It looks like a play button)
 - You should have successfully created a table for your database.
-- To check your new table, navigate in PGadmin4 to your database > public > schemas > table
+- To check your new table, navigate in PGadmin4 to your database > schemas > public > table
+- Use the PSQL prompt to change the postgres user password. I used this tutorial https://phoenixnap.com/kb/postgres-create-user
 
 5. Lets talk required environment variables, and break each one down:
 PORT: This is the port your local server will run on, you may choose any port you wish. Do not put the port number as a string, only a number.

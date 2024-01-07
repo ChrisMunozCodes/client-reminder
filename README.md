@@ -100,6 +100,20 @@ DB_PORT: By default the postgres port is 5432, you may have used a different por
 9. Now go back to your github and a button will appear that prompts you to make a pull request
 ```
 
+# Add Clerk.Dev Authentication
+
+1. ```npm install @clerk/nextjs```
+-  ```npm install @clerk/themes```
+
+2. .env
+
+- NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+- CLERK_SECRET_KEY=
+
+# Add NextUI
+
+1. ```npm i @nextui-org/react framer-motion```
+
 # Things to add (Wish list)
 
 ---

@@ -1,12 +1,8 @@
-import { SignInButton } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
 import Head from "next/head";
 import Link from "next/link";
-import Navbar from "~/components/Navbar";
 import NavbarMenu from '~/components/NavbarMenu'
 
 import { api } from "~/utils/api";
-import { NextUIProvider } from "@nextui-org/react"
 
 export default function Home() {
   const hello = api.post.hello.useQuery({ text: "from tRPC" });

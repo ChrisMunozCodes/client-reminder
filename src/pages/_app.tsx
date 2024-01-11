@@ -14,8 +14,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         baseTheme: dark
       }}
       afterSignInUrl='/dashboard' >
-
-      <Component {...pageProps} />
+      <NextUIProvider>
+        <Component {...pageProps} />
+      </NextUIProvider>
     </ClerkProvider >
   )
 };
